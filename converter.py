@@ -39,6 +39,7 @@ for i in range(4):
 
 #create output file
 outfile = open("foods.json", "wt")
+outfile.write("[\n")
 
 #generate dictionaries, convert them to json, and put them in the output file
 for i in range(1,len(biglst[0])):
@@ -50,5 +51,6 @@ for i in range(1,len(biglst[0])):
     }
     json_entry = json.dumps(dict_entry)     #convert dictionary to json
     outfile.write(json_entry+"\n")               #add json entry to output file
-    
+
+outfile.write("]")
 outfile.close()
