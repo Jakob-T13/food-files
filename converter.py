@@ -18,4 +18,19 @@ fiberf.close()
 fatf.close()
 glyf.close()
 
-#remove the erroneous lines
+#combine the lists into one big iterable list
+biglst = [foodlst, fiberlst, fatlst, glylst]
+
+
+#clean the data
+for i in range(4):
+    biglst[i].pop(30)     #blank line
+    biglst[i].pop(12)     #junk data
+    for j in range(len(biglst[i])):
+        entry = biglst[i][j]    #write to var for optimization
+        entry = entry.title()   #convert to Title Case
+        entry = entry.strip()   #strip whitespace and newlines
+        biglst[i][j] = entry    #write cleaned entry back to the list
+
+
+print(biglst)
